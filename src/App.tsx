@@ -83,6 +83,46 @@ function findReleaseAsset(
   return assets.find((asset) => pattern.test(asset.name))
 }
 
+function findAssetBySuffix(
+  assets: ReleaseAsset[],
+  platform: PlatformId,
+  architecture: ArchitectureId,
+  suffix: RegExp,
+) {
+  const target = `${platform}-${architecture}`.toLowerCase()
+  return assets.find(
+    (asset) => asset.name.toLowerCase().includes(target) && suffix.test(asset.name),
+  )
+}
+
+function downloadFormats(
+  assets: ReleaseAsset[],
+  platform: PlatformId,
+  architecture: ArchitectureId,
+) {
+  const definitions = platform === "macos"
+    ? [
+        ["DMG", "Recommended installer", /\.dmg$/i],
+        ["App bundle", "Portable ZIP", /\.app\.zip$/i],
+      ] as const
+    : platform === "windows"
+      ? [
+          ["Setup", "Windows installer", /-setup\.exe$/i],
+          ["Portable", "ZIP archive", /\.zip$/i],
+        ] as const
+      : [
+          ["AppImage", "Portable archive", /\.AppImage\.tar\.gz$/i],
+          ["DEB", "Debian · Ubuntu", /\.deb$/i],
+          ["RPM", "Fedora · RHEL", /\.rpm$/i],
+        ] as const
+
+  return definitions.map(([label, description, suffix]) => ({
+    label,
+    description,
+    asset: findAssetBySuffix(assets, platform, architecture, suffix),
+  }))
+}
+
 const workflows = [
   {
     id: "workspace",
@@ -328,7 +368,6 @@ function App() {
           onCopyInstallCommand={copyInstallCommand}
           onPlatformChange={selectPlatform}
           platform={platform}
-          selectedAsset={selectedAsset}
         />
 
         <section id="product" className="bg-[#efeee7] px-5 py-24 text-[#11120f] sm:px-8 lg:px-12 lg:py-36">
@@ -513,7 +552,6 @@ function DownloadSection({
   onCopyInstallCommand,
   onPlatformChange,
   platform,
-  selectedAsset,
 }: {
   architecture: ArchitectureId
   copied: boolean
@@ -522,8 +560,13 @@ function DownloadSection({
   onCopyInstallCommand: () => void
   onPlatformChange: (platform: PlatformId) => void
   platform: PlatformId
-  selectedAsset?: ReleaseAsset
 }) {
+  const formats = downloadFormats(
+    latestRelease?.assets ?? [],
+    platform,
+    architecture,
+  )
+
   return (
     <section id="download" className="border-b border-black/10 bg-[#efeee7] px-5 py-20 text-[#11120f] sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-[1500px]">
@@ -596,12 +639,26 @@ function DownloadSection({
               </div>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button size="lg" className="bg-[#121310] text-white shadow-none hover:bg-[#25261f]" asChild>
-                <a href={selectedAsset?.browser_download_url ?? RELEASE_URL}>
-                  <Download /> Download {platformLabels[platform]} · {architecture === "arm64" ? "ARM64" : "x64"}
-                </a>
-              </Button>
+            <div className="mt-7">
+              <p className="mb-2 text-xs font-semibold text-black/65">Package format</p>
+              <div className={cn("grid gap-2", formats.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2")}>
+                {formats.map(({ label, description, asset }) => (
+                  <a
+                    key={label}
+                    href={asset?.browser_download_url ?? RELEASE_URL}
+                    className="group flex items-center justify-between gap-3 rounded-lg border border-black/15 bg-[#121310] px-4 py-3 text-white transition-colors hover:bg-[#25261f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b96f13]"
+                  >
+                    <span>
+                      <span className="block text-xs font-semibold">{label}</span>
+                      <span className="mt-1 block font-mono text-[8px] uppercase tracking-[0.1em] text-white/38">{description}</span>
+                    </span>
+                    <Download className="size-4 shrink-0 text-[#efae3e] transition-transform group-hover:translate-y-0.5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-3">
               <Button size="lg" variant="outline" className="border-black/20 bg-transparent text-black hover:border-black/40 hover:bg-black/[.04]" asChild>
                 <a href={latestRelease?.html_url ?? RELEASE_URL} target="_blank" rel="noreferrer">
                   GitHub Releases <ExternalLink />
