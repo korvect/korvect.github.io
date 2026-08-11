@@ -1,7 +1,7 @@
 {
   "name": "Nauterm — Remote access, under your control",
   "short_name": "Nauterm",
-  "description": "A native terminal and remote access workspace for macOS, Linux, and Windows.",
+  "description": "A native SSH, Mosh, SFTP, and remote terminal workspace for macOS, Linux, and Windows.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
