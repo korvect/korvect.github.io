@@ -285,13 +285,13 @@ function App() {
                 <p className="mt-5 max-w-sm text-pretty text-[15px] leading-7 text-white/55">
                   Terminal, remote access, file transfer, encrypted sync, and optional AI assistance—built as one native desktop workspace.
                 </p>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Button size="lg" asChild>
+                <div className="mt-8 flex flex-col gap-3">
+                  <Button size="lg" className="h-14 w-full px-8 text-base" asChild>
                     <a href={selectedAsset?.browser_download_url ?? RELEASE_URL}>
                       <Download /> Download for {platformLabels[platform]}
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button size="lg" variant="outline" className="h-14 w-full px-8 text-base" asChild>
                     <a href={latestRelease?.html_url ?? RELEASE_URL} target="_blank" rel="noreferrer">
                       <Github /> View releases
                     </a>

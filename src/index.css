@@ -135,6 +135,24 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .hero-copy-grid {
+    display: block;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-wordmark {
+    margin-top: 3.25rem;
+  }
+
+  .hero-copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+  }
+}
+
 .security-grid {
   background-image:
     linear-gradient(rgba(157, 231, 189, 0.06) 1px, transparent 1px),
