@@ -3,24 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0c0c" />
+    <meta name="theme-color" content="#06131b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="Nauterm" />
+    <meta name="apple-mobile-web-app-title" content="Nauterm" />
+    <meta name="author" content="Korvect" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta
       name="description"
-      content="Nauterm is a modern, cross-platform terminal and remote access workspace built with Flutter and Rust."
+      content="Nauterm is a native terminal and remote access workspace for SSH, Mosh, SFTP, port forwarding, encrypted sync, and optional AI assistance."
     />
-    <meta property="og:title" content="Nauterm — Your remote workspace, under your control." />
+
+    <link rel="canonical" href="https://korvect.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://korvect.github.io/" />
+    <link rel="alternate" hreflang="x-default" href="https://korvect.github.io/" />
+
+    <meta property="og:site_name" content="Nauterm" />
+    <meta property="og:title" content="Nauterm — Remote access, under your control" />
     <meta
       property="og:description"
       content="Terminal, SSH, SFTP, port forwarding, encrypted sync, and optional AI assistance in one native desktop workspace."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/screenshots/workspace.png" />
+    <meta property="og:url" content="https://korvect.github.io/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://korvect.github.io/screenshots/workspace.png" />
+    <meta property="og:image:secure_url" content="https://korvect.github.io/screenshots/workspace.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1686" />
+    <meta property="og:image:height" content="891" />
+    <meta property="og:image:alt" content="Nauterm workspace showing multiple live terminal sessions" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/png" href="/brand/app-icon.png" />
+    <meta name="twitter:title" content="Nauterm — Remote access, under your control" />
+    <meta
+      name="twitter:description"
+      content="Terminal, SSH, SFTP, port forwarding, encrypted sync, and optional AI assistance in one native desktop workspace."
+    />
+    <meta name="twitter:image" content="https://korvect.github.io/screenshots/workspace.png" />
+    <meta name="twitter:image:alt" content="Nauterm workspace showing multiple live terminal sessions" />
+
+    <link rel="icon" type="image/png" sizes="512x512" href="/brand/app-icon.png" />
+    <link rel="apple-touch-icon" href="/brand/app-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://korvect.github.io/#website",
+            "url": "https://korvect.github.io/",
+            "name": "Nauterm",
+            "description": "A native terminal and remote access workspace for macOS, Linux, and Windows.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://korvect.github.io/#software",
+            "name": "Nauterm",
+            "url": "https://korvect.github.io/",
+            "image": "https://korvect.github.io/brand/app-icon.png",
+            "screenshot": "https://korvect.github.io/screenshots/workspace.png",
+            "description": "A native terminal and remote access workspace with SSH, Mosh, SFTP, port forwarding, encrypted sync, and optional AI assistance.",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "Terminal emulator and remote access client",
+            "operatingSystem": ["macOS", "Linux", "Windows"],
+            "softwareVersion": "0.2.3",
+            "downloadUrl": "https://github.com/korvect/nauterm/releases/latest",
+            "installUrl": "https://github.com/korvect/nauterm/releases/latest",
+            "codeRepository": "https://github.com/korvect/nauterm",
+            "license": "https://github.com/korvect/nauterm/blob/main/LICENSE",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Korvect",
+              "url": "https://github.com/korvect"
+            },
+            "featureList": [
+              "SSH and Mosh remote terminals",
+              "SFTP file transfer",
+              "Port forwarding",
+              "Encrypted workspace sync",
+              "Optional AI assistance"
+            ]
+          }
+        ]
+      }
+    </script>
+
     <title>Nauterm — Remote access, under your control</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main>
+        <h1>Nauterm — Remote access, under your control</h1>
+        <p>
+          Nauterm brings terminal sessions, SSH, Mosh, SFTP, port forwarding,
+          encrypted sync, and optional AI assistance into one native desktop workspace.
+        </p>
+        <p>
+          Available for macOS, Linux, and Windows.
+          <a href="https://github.com/korvect/nauterm/releases/latest">Download the latest release</a>.
+        </p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

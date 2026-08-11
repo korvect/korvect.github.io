@@ -1,0 +1,19 @@
+{
+  "name": "Nauterm — Remote access, under your control",
+  "short_name": "Nauterm",
+  "description": "A native terminal and remote access workspace for macOS, Linux, and Windows.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06131b",
+  "theme_color": "#06131b",
+  "icons": [
+    {
+      "src": "/brand/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
