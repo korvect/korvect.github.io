@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 4% 5%;
+    --foreground: 48 20% 94%;
+    --border: 0 0% 100% / 0.12;
+    --input: 0 0% 100% / 0.12;
+    --ring: 38 84% 59%;
+    --primary: 38 84% 59%;
+    --primary-foreground: 39 42% 8%;
+    --secondary: 60 4% 11%;
+    --secondary-foreground: 48 20% 94%;
+    --muted: 60 3% 13%;
+    --muted-foreground: 45 5% 61%;
+    --accent: 145 37% 55%;
+    --accent-foreground: 150 30% 8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: #0b0c0c;
+  }
+
+  body {
+    @apply m-0 bg-background font-sans text-foreground antialiased;
+    min-width: 320px;
+    font-feature-settings: "ss01" 1, "ss03" 1;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+.hero-grid {
+  background-color: #0b0c0c;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+}
+
+.hero-grid::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(11, 12, 12, 0.12) 0%, rgba(11, 12, 12, 0) 45%, #0b0c0c 100%),
+    radial-gradient(circle at 50% 48%, transparent 0%, rgba(11, 12, 12, 0.23) 62%, rgba(11, 12, 12, 0.78) 100%);
+}
+
+.hero-glow {
+  position: absolute;
+  top: 9rem;
+  left: 18%;
+  width: 58vw;
+  height: 45vw;
+  max-height: 700px;
+  border-radius: 9999px;
+  opacity: 0.22;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(239, 174, 62, 0.38), transparent 68%);
+  pointer-events: none;
+}
+
+.hero-copy-grid {
+  display: grid;
+  grid-template-areas:
+    "eyebrow"
+    "wordmark"
+    "copy";
+  row-gap: 2rem;
+}
+
+.hero-eyebrow {
+  grid-area: eyebrow;
+}
+
+.hero-wordmark {
+  grid-area: wordmark;
+}
+
+.hero-copy {
+  grid-area: copy;
+}
+
+.brand-wordmark {
+  margin-left: -0.045em;
+  font-size: clamp(4.4rem, 15.5vw, 15rem);
+  font-weight: 680;
+  line-height: 0.75;
+  letter-spacing: -0.085em;
+  white-space: nowrap;
+  color: #f2f1eb;
+  text-shadow: 0 18px 80px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 1024px) {
+  .hero-copy-grid {
+    grid-template-columns: minmax(0, 1fr) 380px;
+    grid-template-areas:
+      "eyebrow copy"
+      "wordmark wordmark";
+    column-gap: 4rem;
+    row-gap: 3rem;
+    align-items: start;
+  }
+
+  .hero-copy {
+    padding-top: 0.1rem;
+  }
+}
+
+.security-grid {
+  background-image:
+    linear-gradient(rgba(157, 231, 189, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 231, 189, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.security-grid::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(circle at 8% 15%, rgba(157, 231, 189, 0.11), transparent 38%);
+}
+
+.open-source-orbit {
+  position: absolute;
+  width: min(70vw, 850px);
+  aspect-ratio: 1;
+  right: -25%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(239, 174, 62, 0.14);
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 80px rgba(239, 174, 62, 0.025),
+    0 0 0 160px rgba(239, 174, 62, 0.018),
+    inset 0 0 120px rgba(239, 174, 62, 0.05);
+}
+
+.open-source-orbit::before,
+.open-source-orbit::after {
+  position: absolute;
+  content: "";
+  border-radius: 9999px;
+  background: #efae3e;
+  box-shadow: 0 0 28px rgba(239, 174, 62, 0.65);
+}
+
+.open-source-orbit::before {
+  width: 8px;
+  height: 8px;
+  top: 14%;
+  left: 16%;
+}
+
+.open-source-orbit::after {
+  width: 5px;
+  height: 5px;
+  right: 8%;
+  bottom: 28%;
+}
+
+@media (max-width: 1023px) {
+  .brand-wordmark {
+    font-size: clamp(4rem, 19vw, 9rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-grid {
+    background-size: 38px 38px;
+  }
+
+  .brand-wordmark {
+    font-size: clamp(3.8rem, 20vw, 6rem);
+    letter-spacing: -0.08em;
+  }
+
+  .open-source-orbit {
+    right: -60%;
+    width: 120vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
