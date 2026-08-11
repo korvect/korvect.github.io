@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    --background: 60 4% 5%;
-    --foreground: 48 20% 94%;
+    --background: 201 64% 6%;
+    --foreground: 174 30% 93%;
     --border: 0 0% 100% / 0.12;
     --input: 0 0% 100% / 0.12;
-    --ring: 38 84% 59%;
-    --primary: 38 84% 59%;
-    --primary-foreground: 39 42% 8%;
-    --secondary: 60 4% 11%;
-    --secondary-foreground: 48 20% 94%;
-    --muted: 60 3% 13%;
-    --muted-foreground: 45 5% 61%;
-    --accent: 145 37% 55%;
-    --accent-foreground: 150 30% 8%;
+    --ring: 187 69% 50%;
+    --primary: 187 69% 50%;
+    --primary-foreground: 195 75% 7%;
+    --secondary: 197 48% 12%;
+    --secondary-foreground: 174 30% 93%;
+    --muted: 197 38% 15%;
+    --muted-foreground: 183 12% 62%;
+    --accent: 160 65% 67%;
+    --accent-foreground: 177 55% 8%;
   }
 
   * {
@@ -25,7 +25,7 @@
 
   html {
     scroll-behavior: smooth;
-    background: #0b0c0c;
+    background: #06131b;
   }
 
   body {
@@ -55,10 +55,10 @@
 }
 
 .hero-grid {
-  background-color: #0b0c0c;
+  background-color: #06131b;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+    linear-gradient(rgba(83, 195, 211, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(83, 195, 211, 0.045) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
 }
@@ -69,8 +69,8 @@
   content: "";
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(11, 12, 12, 0.12) 0%, rgba(11, 12, 12, 0) 45%, #0b0c0c 100%),
-    radial-gradient(circle at 50% 48%, transparent 0%, rgba(11, 12, 12, 0.23) 62%, rgba(11, 12, 12, 0.78) 100%);
+    linear-gradient(180deg, rgba(6, 19, 27, 0.08) 0%, rgba(6, 19, 27, 0) 45%, #06131b 100%),
+    radial-gradient(circle at 50% 48%, transparent 0%, rgba(4, 20, 29, 0.28) 62%, rgba(3, 12, 18, 0.84) 100%);
 }
 
 .hero-glow {
@@ -81,9 +81,9 @@
   height: 45vw;
   max-height: 700px;
   border-radius: 9999px;
-  opacity: 0.22;
+  opacity: 0.3;
   filter: blur(100px);
-  background: radial-gradient(circle, rgba(239, 174, 62, 0.38), transparent 68%);
+  background: radial-gradient(circle, rgba(34, 199, 216, 0.46), rgba(18, 104, 143, 0.16) 42%, transparent 70%);
   pointer-events: none;
 }
 
@@ -115,7 +115,7 @@
   line-height: 0.75;
   letter-spacing: -0.085em;
   white-space: nowrap;
-  color: #f2f1eb;
+  color: #e6f3f2;
   text-shadow: 0 18px 80px rgba(0, 0, 0, 0.35);
 }
 
@@ -163,8 +163,8 @@
 
 .security-grid {
   background-image:
-    linear-gradient(rgba(157, 231, 189, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(157, 231, 189, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(116, 229, 199, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(116, 229, 199, 0.07) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -173,7 +173,7 @@
   inset: 0;
   content: "";
   pointer-events: none;
-  background: radial-gradient(circle at 8% 15%, rgba(157, 231, 189, 0.11), transparent 38%);
+  background: radial-gradient(circle at 8% 15%, rgba(67, 213, 202, 0.15), transparent 40%);
 }
 
 .open-source-orbit {
@@ -183,12 +183,12 @@
   right: -25%;
   top: 50%;
   transform: translateY(-50%);
-  border: 1px solid rgba(239, 174, 62, 0.14);
+  border: 1px solid rgba(40, 199, 216, 0.18);
   border-radius: 9999px;
   box-shadow:
-    0 0 0 80px rgba(239, 174, 62, 0.025),
-    0 0 0 160px rgba(239, 174, 62, 0.018),
-    inset 0 0 120px rgba(239, 174, 62, 0.05);
+    0 0 0 80px rgba(40, 199, 216, 0.035),
+    0 0 0 160px rgba(40, 199, 216, 0.022),
+    inset 0 0 120px rgba(40, 199, 216, 0.07);
 }
 
 .open-source-orbit::before,
@@ -196,8 +196,8 @@
   position: absolute;
   content: "";
   border-radius: 9999px;
-  background: #efae3e;
-  box-shadow: 0 0 28px rgba(239, 174, 62, 0.65);
+  background: #28c7d8;
+  box-shadow: 0 0 28px rgba(40, 199, 216, 0.68);
 }
 
 .open-source-orbit::before {
